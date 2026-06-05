@@ -3,13 +3,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: clinic-service
-  labels:
-    app: clinic-front
 spec:
-  type: {{ .Values.service.type }}
   selector:
     app: clinic-front
   ports:
-    - name: http
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+  - port: {{ .Values.service.port }}
+    targetPort: 8080
